@@ -17,15 +17,53 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Frontend Mentor | NFT preview card component</title>
   </head>
-  <body>
+  <body class="wrapper">
     <main>
-      <h1>Hello World!</h1>
-
-      <!-- Equilibrium #3429
-      Our Equilibrium collection promotes balance and calm.
-      0.041 ETH
-      3 days left
-      Creation of Jules Wyvern -->
+      <div class="card">
+        <div class="card-thumbnail">
+          <img
+            src="/assets/images/image-equilibrium.jpg"
+            alt="A glass dice in precarious balance on a shiny surface reflecting light."
+          />
+        </div>
+        <h1 class="card-heading">Equilibrium #3429</h1>
+        <p class="card-body">
+          Our Equilibrium collection promotes balance and calm.
+        </p>
+        <div class="card-pills">
+          <div class="card-pill card-pill--value">
+            <svg width="11" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 10.216 5.5 18 0 10.216l5.5 3.263 5.5-3.262ZM5.5 0l5.496 9.169L5.5 12.43 0 9.17 5.5 0Z"
+                fill="#00FFF8"
+              />
+            </svg>
+            <p>0.041 ETH</p>
+          </div>
+          <div class="card-pill card-pill--time">
+            <svg width="17" height="17" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8.305 2.007a6.667 6.667 0 1 0 0 13.334 6.667 6.667 0 0 0 0-13.334Zm2.667 7.334H8.305a.667.667 0 0 1-.667-.667V6.007a.667.667 0 0 1 1.334 0v2h2a.667.667 0 0 1 0 1.334Z"
+                fill="#8BACD9"
+              />
+            </svg>
+            <p><time datetime="P3D">3 days</time> left</p>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <img
+            src="/assets/images/image-avatar.png"
+            alt=""
+            class="card-avatar"
+          />
+          <p>
+            Creation of
+            <a href="#" class="card-author" title="Lean more about the author"
+              >Jules Wyvern</a
+            >
+          </p>
+        </footer>
+      </div>
     </main>
     <footer class="footer">
       <p>
