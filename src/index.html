@@ -21,10 +21,30 @@
     <main>
       <div class="card">
         <div class="card-thumbnail">
-          <img
-            src="/assets/images/image-equilibrium.jpg"
-            alt="A glass dice in precarious balance on a shiny surface reflecting light."
-          />
+          <picture>
+            <source
+              type="image/webp"
+              sizes="(min-width: 400px) 320px, 100vw"
+              srcset="
+                /assets/images/image-equilibrium-320.webp 320w,
+                /assets/images/image-equilibrium-640.webp 640w,
+                /assets/images/image-equilibrium-960.webp 960w
+              "
+            />
+
+            <img
+              sizes="(min-width: 400px) 320px, 100vw"
+              srcset="
+                /assets/images/image-equilibrium-320.jpg 320w,
+                /assets/images/image-equilibrium-640.jpg 640w,
+                /assets/images/image-equilibrium-960.jpg 960w
+              "
+              src="/assets/images/image-equilibrium-320.jpg"
+              alt="A glass dice in precarious balance on a shiny surface reflecting light."
+              width="320"
+              height="320"
+            />
+          </picture>
         </div>
         <h1 class="card-heading">Equilibrium #3429</h1>
         <p class="card-body">
@@ -51,11 +71,29 @@
           </div>
         </div>
         <footer class="card-footer">
-          <img
-            src="/assets/images/image-avatar.png"
-            alt=""
-            class="card-avatar"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                /assets/images/image-avatar-40.webp  1x,
+                /assets/images/image-avatar-80.webp  2x,
+                /assets/images/image-avatar-120.webp 3x
+              "
+            />
+            <img
+              srcset="
+                /assets/images/image-avatar-40.png  1x,
+                /assets/images/image-avatar-80.png  2x,
+                /assets/images/image-avatar-120.png 3x
+              "
+              src="/assets/images/image-avatar-40.png"
+              alt=""
+              width="132"
+              height="132"
+              class="card-avatar"
+            />
+          </picture>
+
           <p>
             Creation of
             <a href="#" class="card-author" title="Lean more about the author"
