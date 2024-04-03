@@ -55,14 +55,25 @@
 ############# STYLE GUIDE #################
 ######################################## */
 :root {
+  --accent: 178 100% 50%;
   --color-primary: #8bacda;
-  --color-accent: #00fff7;
+  --color-accent: hsl(var(--accent));
+  --color-complementary: #ff9700;
   --color-neutral-50: #ffffff;
+  --color-neutral-200: #90abd1;
   --color-neutral-400: #2f415b;
   --color-neutral-600: #14253d;
   --color-neutral-900: #0d192b;
 
   --font-body: 1.125rem;
+  --font-heading: 1.5rem;
+  --font-weight-semibold: 600;
+  --font-weight-regular: 400;
+  --font-weight-thin: 300;
+
+  --spacing: 1.5rem;
+
+  --transition-duration-timing: 150ms ease-in-out;
 }
 /* ########################################
 ############# RESET #######################
@@ -108,11 +119,13 @@ ul {
 ############# BASIC STYLING ###############
 ######################################## */
 body {
+  background-color: var(--color-neutral-900);
   font-size: var(--font-body);
   font-family: 'Outfit', sans-serif;
   @supports (font-variation-settings: normal) {
     font-family: 'Outfit VF', sans-serif;
   }
+  font-weight: var(--font-weight-regular);
 }
 
 /* ########################################
@@ -134,3 +147,150 @@ body {
 /* ########################################
 ########### COMPONENT STYLING #############
 ######################################## */
+.wrapper {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr auto;
+}
+
+.card {
+  margin-inline: auto;
+  padding: var(--spacing);
+  width: min(90%, 20em);
+  display: grid;
+  gap: var(--spacing);
+
+  background-color: var(--color-neutral-600);
+  border-radius: 16px;
+
+  color: var(--color-primary);
+}
+
+.card-thumbnail {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/assets/images/icon-view.svg') no-repeat center;
+    background-color: hsla(var(--accent) / 0.5);
+    opacity: 0;
+    transition: opacity var(--transition-duration-timing);
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.card-heading {
+  color: var(--color-neutral-50);
+  cursor: pointer;
+  font-size: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  transition: var(--transition-duration-timing);
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.card-body {
+  font-weight: var(--font-weight-thin);
+}
+
+.card-pills,
+.card-pill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-pills {
+  column-gap: var(--spacing);
+  row-gap: calc(0.5 * var(--spacing));
+  flex-wrap: wrap;
+}
+
+.card-pill {
+  gap: calc(0.25 * var(--spacing));
+}
+
+.card-pill--value {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+  & svg path {
+    fill: currentColor;
+  }
+}
+
+.card-pill--time {
+  color: var(--color-primary);
+  & svg path {
+    fill: currentColor;
+  }
+}
+
+.card-footer {
+  padding-top: var(--spacing);
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(0.5 * var(--spacing));
+  align-items: center;
+  border-top: 1px solid var(--color-neutral-400);
+  font-weight: var(--font-weight-thin);
+
+  & .card-avatar {
+    --width: 1.8em;
+    max-width: var(--width);
+    aspect-ratio: 1;
+    border: 1px solid var(--color-neutral-50);
+    border-radius: 50%;
+  }
+
+  & .card-author {
+    color: var(--color-neutral-50);
+    text-decoration: none;
+    transition: var(--transition-duration-timing);
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.footer {
+  padding: var(--spacing);
+  text-align: center;
+  color: var(--color-neutral-50);
+
+  & .footer-icon {
+    color: var(--color-accent);
+  }
+
+  & .footer-link {
+    transition: var(--transition-duration-timing);
+
+    &,
+    &:link {
+      color: var(--color-neutral-50);
+      text-underline-offset: 4px;
+    }
+    &:visited {
+      color: var(--color-neutral-200);
+    }
+    &:is(:hover, :focus-visible) {
+      color: var(--color-accent);
+    }
+    &:focus-visible {
+      outline-color: var(--color-accent);
+      text-decoration: none;
+    }
+    &:active {
+      color: var(--color-complementary);
+    }
+  }
+}
